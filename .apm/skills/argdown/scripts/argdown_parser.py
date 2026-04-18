@@ -130,7 +130,21 @@ def parse_argdown(text: str) -> ArgdownModel:
     current_parent = None     # (type, title)
     in_block_comment = False
     in_html_comment = False
+    pcs_after_inference = False  # inside an argument's PCS, past the first `----`
     i = 0
+
+    seen_relations = set()
+
+    def add_relation(source, source_type, target, target_type, rel_type):
+        key = (source_type, source, target_type, target, rel_type)
+        if key in seen_relations:
+            return
+        seen_relations.add(key)
+        model.relations.append(Relation(
+            source=source, source_type=source_type,
+            target=target, target_type=target_type,
+            relation=rel_type,
+        ))
 
     while i < len(lines):
         line = lines[i]
@@ -183,6 +197,7 @@ def parse_argdown(text: str) -> ArgdownModel:
             section_hierarchy.append((level, current_section))
 
             current_parent = None
+            pcs_after_inference = False
             i += 1
             continue
 
@@ -205,24 +220,10 @@ def parse_argdown(text: str) -> ArgdownModel:
 
             parent_type, parent_title = current_parent
 
-            if direction == "outgoing":
-                model.relations.append(Relation(
-                    source=parent_title, source_type=parent_type,
-                    target=target_title, target_type=target_type,
-                    relation=rel_type
-                ))
+            if direction == "outgoing" or direction == "symmetric":
+                add_relation(parent_title, parent_type, target_title, target_type, rel_type)
             elif direction == "incoming":
-                model.relations.append(Relation(
-                    source=target_title, source_type=target_type,
-                    target=parent_title, target_type=parent_type,
-                    relation=rel_type
-                ))
-            elif direction == "symmetric":
-                model.relations.append(Relation(
-                    source=parent_title, source_type=parent_type,
-                    target=target_title, target_type=target_type,
-                    relation=rel_type
-                ))
+                add_relation(target_title, target_type, parent_title, parent_type, rel_type)
             i += 1
             continue
 
@@ -264,6 +265,7 @@ def parse_argdown(text: str) -> ArgdownModel:
                     s.section = current_section
 
             current_parent = ("statement", title)
+            pcs_after_inference = False
             i += 1
             continue
 
@@ -274,6 +276,7 @@ def parse_argdown(text: str) -> ArgdownModel:
             if title not in model.statements:
                 model.statements[title] = Statement(title=title, section=current_section)
             current_parent = ("statement", title)
+            pcs_after_inference = False
             i += 1
             continue
 
@@ -315,6 +318,7 @@ def parse_argdown(text: str) -> ArgdownModel:
                     a.section = current_section
 
             current_parent = ("argument", title)
+            pcs_after_inference = False
             i += 1
             continue
 
@@ -325,16 +329,19 @@ def parse_argdown(text: str) -> ArgdownModel:
             if title not in model.arguments:
                 model.arguments[title] = Argument(title=title, section=current_section)
             current_parent = ("argument", title)
+            pcs_after_inference = False
             i += 1
             continue
 
         # PCS premises (inside an argument context)
         pm = RE_PCS_PREMISE.match(line)
         if pm and current_parent and current_parent[0] == "argument":
+            arg_title = current_parent[1]
             raw_pcs_text = pm.group(2).strip()
             pcs_text, _ = extract_meta(raw_pcs_text)
-            # Check if PCS references a titled statement
+            pcs_title = None
             tsm = RE_TITLED_STATEMENT.match(pcs_text)
+            srm = RE_STATEMENT_REF.match(pcs_text)
             if tsm:
                 pcs_title = tsm.group(1)
                 if pcs_title not in model.statements:
@@ -342,11 +349,26 @@ def parse_argdown(text: str) -> ArgdownModel:
                         title=pcs_title, text=tsm.group(2).strip(),
                         section=current_section
                     )
+            elif srm:
+                pcs_title = srm.group(1)
+                if pcs_title not in model.statements:
+                    model.statements[pcs_title] = Statement(
+                        title=pcs_title, section=current_section
+                    )
+            if pcs_title:
+                if pcs_after_inference:
+                    # Argument supports its conclusion
+                    add_relation(arg_title, "argument", pcs_title, "statement", "support")
+                else:
+                    # Premise supports the argument
+                    add_relation(pcs_title, "statement", arg_title, "argument", "support")
             i += 1
             continue
 
         # PCS inference lines
         if RE_PCS_INFERENCE.match(stripped):
+            if current_parent and current_parent[0] == "argument":
+                pcs_after_inference = True
             i += 1
             continue
 
