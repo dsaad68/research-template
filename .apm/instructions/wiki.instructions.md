@@ -11,7 +11,7 @@ on consistency.
 
 ## Hard rules
 
-1. **Raw sources are immutable.** Files under `research/sources/` are read-only.
+1. **Raw inputs are immutable.** Files under `research/input/` are read-only.
    Never edit them. If content is wrong, flag it on the wiki page — don't fix
    the source.
 2. **Every ingest touches `index.md` and `log.md`.** If you updated a page
@@ -64,7 +64,7 @@ type: source
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 sources: []
-origin: <URL or path/to/research/sources/file>
+origin: <URL or path/to/research/input/file>
 author: <Author or org, if known>
 date: <Publication date, if known>
 aliases: []

@@ -18,7 +18,7 @@ does the reading, summarizing, cross-referencing, and bookkeeping.
 
 Three layers — **never** conflate them:
 
-1. **Raw sources** — `research/sources/` (immutable; user drops files here)
+1. **Raw inputs** — `research/input/` (immutable; user drops files here)
 2. **The wiki** — `research/wiki/` (LLM-owned markdown; agent reads + writes)
 3. **The schema** — `.apm/instructions/wiki.instructions.md` (rules for page
    formats, linking, index/log conventions; auto-loaded when editing wiki files)
@@ -27,7 +27,7 @@ Three layers — **never** conflate them:
 
 ```
 research/
-├── sources/                     # Raw, immutable user-supplied files
+├── input/                       # Raw, immutable user-supplied files
 └── wiki/
     ├── index.md                 # Content catalog (grouped by type)
     ├── log.md                   # Append-only chronological ledger
@@ -43,7 +43,7 @@ Three agents implement the wiki lifecycle. Pick the right one:
 
 | Intent | Agent | Typical trigger |
 |---|---|---|
-| Add a new source to the wiki | `wiki-ingest` | "ingest this paper", "add this URL to the wiki", "process research/sources/foo.md" |
+| Add a new source to the wiki | `wiki-ingest` | "ingest this paper", "add this URL to the wiki", "process research/input/foo.md" |
 | Ask a question against the wiki | `wiki-query` | "what does the wiki say about X?", "summarize our current thinking on Y" |
 | Health-check the wiki | `wiki-lint` | "lint the wiki", "find orphan pages", "are there contradictions?" |
 
@@ -101,7 +101,7 @@ Both write to separate directories and leave the wiki untouched.
 
 ## Guidelines
 
-- **Never modify raw sources** in `research/sources/`. Read-only.
+- **Never modify raw inputs** in `research/input/`. Read-only.
 - **Always update both `index.md` and `log.md`** on an ingest. Consistency of
   these two files is the single most important invariant.
 - **One entity/concept per page**, even if the page is a stub. Stubs are

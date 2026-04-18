@@ -26,9 +26,9 @@ When editing any file under `research/wiki/`, the full schema in
 page formats, frontmatter, `[[WikiLink]]` style, `index.md` / `log.md`
 conventions.
 
-## Raw sources
+## Raw inputs
 
-User-curated source material lives under `research/sources/` and is
+User-curated input material lives under `research/input/` and is
 **immutable**. Agents may read from it but never edit it.
 
 ## MCP servers

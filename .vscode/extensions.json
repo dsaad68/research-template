@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "anthropic.claude-code",
+        "google.geminicodeassist",
+        "openai.chatgpt",
+        "christianvoigt.argdown-vscode"
+    ]
+}

@@ -5,7 +5,7 @@ summary under the right group. Keep entries alphabetical within each group.
 
 ## Sources
 
-_No sources ingested yet. Drop a file under `research/sources/` or give a URL
+_No sources ingested yet. Drop a file under `research/input/` or give a URL
 to the `wiki-ingest` agent._
 
 ## Entities
