@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "mcp__parallel-search-mcp__web_fetch",
-      "WebFetch(domain:microsoft.github.io)"
-    ]
-  }
-}
