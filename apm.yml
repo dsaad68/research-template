@@ -2,6 +2,7 @@ name: research-template
 version: 1.0.0
 description: APM project for research-template
 author: Daniel Saad
+license: MIT
 target: claude
 dependencies:
   apm: []

@@ -1,6 +1,10 @@
 ---
 name: llm-wiki
 description: Persistent, LLM-maintained markdown knowledge base that grows as you drop in sources — ingest, query, and lint operations keep it synthesized and cross-linked.
+license: MIT
+metadata:
+  author: Daniel Saad
+  email: me@dsaad.com
 ---
 
 # LLM Wiki
