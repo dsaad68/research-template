@@ -17,6 +17,3 @@ dependencies:
     registry: false
     transport: http
     url: https://mcp.deepwiki.com/mcp
-scripts:
-  sync-claude: "bash scripts/sync-claude.sh"
-  sync-claude:win: "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/sync-claude.ps1"
