@@ -5,7 +5,8 @@ author: Daniel Saad
 license: MIT
 target: claude
 dependencies:
-  apm: []
+  apm:
+  - anthropics/skills/skills/pdf
   mcp:
   - name: parallel-search
     registry: false
