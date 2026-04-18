@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:microsoft.github.io)",
+      "WebFetch(domain:docs.astral.sh)",
+      "mcp__claude_ai_Parallel_Search_MCP__web_fetch"
+    ]
+  }
+}
