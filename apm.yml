@@ -7,6 +7,8 @@ target: claude
 dependencies:
   apm:
   - anthropics/skills/skills/pdf
+  - ./.apm/skills/argdown
+  - ./.apm/skills/llm-wiki
   mcp:
   - name: parallel-search
     registry: false

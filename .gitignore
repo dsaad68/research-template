@@ -1,2 +1,5 @@
 __pycache__/
 sandbox/
+
+# APM dependencies
+apm_modules/
