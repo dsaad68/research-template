@@ -1,0 +1,16 @@
+{
+  "foam.files.exclude": [
+    ".apm/**",
+    "apm_modules/**",
+    ".claude/**",
+    ".gemini/**",
+    ".obsidian/**",
+    ".vscode/**",
+    ".git/**",
+    "agent/**",
+    "docs/**",
+    "agents/.apm/**",
+    "README.md",
+    "READING-LIST.md"
+  ]
+}
