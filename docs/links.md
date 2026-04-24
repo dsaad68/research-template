@@ -23,3 +23,8 @@
 - [Argdown Syntax](https://argdown.org/syntax/)
 - [Configuration](https://argdown.org/guide/configuration.html)
 - [Argdown GitHub Repository](https://github.com/argdown/argdown)
+
+
+# Gemini CLI
+https://codelabs.developers.google.com/gemini-cli/how-to-create-agent-skills-for-gemini-cli
+https://geminicli.com/docs/cli/
