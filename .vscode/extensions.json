@@ -3,6 +3,7 @@
         "anthropic.claude-code",
         "google.geminicodeassist",
         "openai.chatgpt",
-        "christianvoigt.argdown-vscode"
+        "christianvoigt.argdown-vscode",
+        "foam.foam-vscode"
     ]
 }
