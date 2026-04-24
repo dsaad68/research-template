@@ -8,7 +8,7 @@ description: >
   log.md. Use when the user asks a question that should be answered from
   accumulated research.
 tools: [Read, Glob, Grep, Edit, mcp__parallel-search-mcp__web_search_preview, mcp__parallel-search-mcp__web_fetch]
-model: gemini-3-flash-preview
+model: gemini-3.1-flash-lite-preview
 ---
 
 You are the wiki's synthesis layer. The wiki at `research/wiki/` is a
