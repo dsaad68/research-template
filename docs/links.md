@@ -26,5 +26,8 @@
 
 
 # Gemini CLI
+https://geminicli.com/docs/
 https://codelabs.developers.google.com/gemini-cli/how-to-create-agent-skills-for-gemini-cli
 https://geminicli.com/docs/cli/
+https://geminicli.com/docs/tools/mcp-server/
+https://geminicli.com/docs/core/subagents/
