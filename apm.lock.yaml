@@ -1,0 +1,47 @@
+lockfile_version: '1'
+generated_at: '2026-04-29T18:00:01.674425+00:00'
+apm_version: 0.10.0
+dependencies:
+- repo_url: anthropics/skills
+  host: github.com
+  resolved_commit: 5128e1865d670f5d6c9cef000e6dfc4e951fb5b9
+  virtual_path: skills/pdf
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .github/skills/pdf
+  content_hash: sha256:69e2ac9eb2bbe2881df26acc53b46b39a15cfda206f5357e5f9c83feb0fadcc7
+mcp_servers:
+- deepwiki
+- parallel-search
+mcp_configs:
+  deepwiki:
+    name: deepwiki
+    transport: http
+    registry: false
+    url: https://mcp.deepwiki.com/mcp
+  parallel-search:
+    name: parallel-search
+    transport: http
+    registry: false
+    url: https://search-mcp.parallel.ai/mcp
+local_deployed_files:
+- .github/agents/find-references.agent.md
+- .github/agents/parallel-web-researcher.agent.md
+- .github/agents/verify-claims.agent.md
+- .github/agents/wiki-ingest.agent.md
+- .github/agents/wiki-lint.agent.md
+- .github/agents/wiki-query.agent.md
+- .github/instructions/research.instructions.md
+- .github/instructions/wiki.instructions.md
+- .github/skills/argdown
+- .github/skills/llm-wiki
+local_deployed_file_hashes:
+  .github/agents/find-references.agent.md: sha256:5a5feb518b0a5d4bdbfaaca6f8829afa4f1540559fc77da7d8ca91ba92660fb2
+  .github/agents/parallel-web-researcher.agent.md: sha256:56cf2d50c1b8bc90205482f8183cb4ca620a6c5b115d1f2e9288e3ab27894c82
+  .github/agents/verify-claims.agent.md: sha256:6c901e5e0a7dfa44c4a8be9812410c8ce83879dde6517ea5d6c5999977f004d3
+  .github/agents/wiki-ingest.agent.md: sha256:ceb6b97864343d768698defaa3486c680d176d8de39a4fc3ef39218c216411e7
+  .github/agents/wiki-lint.agent.md: sha256:c22d927f6c8b833efec92069d22ec06a25fef88f2ad96b28345cfd0d6a06a2ff
+  .github/agents/wiki-query.agent.md: sha256:de35badcc6adfcdf981f4e4e7bfbd258799f7cfd2d2b32e7abbf759af4c846ba
+  .github/instructions/research.instructions.md: sha256:8a032b6fa50d9790bd0e5be02dab5a94776104efb76c75f135f63d8dc0b22bef
+  .github/instructions/wiki.instructions.md: sha256:442b0feeceb0e0cdd3f3e05a77f07c1ea6e8c83820d38b77b47563e9ed7ea45c
