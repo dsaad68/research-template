@@ -7,7 +7,6 @@ target: claude
 dependencies:
   apm:
   - anthropics/skills/skills/pdf
-  - ./agents
   mcp:
   - name: parallel-search
     registry: false
