@@ -1,6 +1,0 @@
-name: research-template-local
-version: 1.0.0
-description: Local primitives for research-template
-author: Daniel Saad
-license: MIT
-target: claude
