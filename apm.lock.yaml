@@ -1,0 +1,43 @@
+lockfile_version: '1'
+generated_at: '2026-05-08T11:19:13.470912+00:00'
+apm_version: 0.12.2
+dependencies:
+- repo_url: anthropics/skills
+  host: github.com
+  resolved_commit: d211d437443a7b2496a3dad9575e7dddd724c585
+  virtual_path: skills/pdf
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/pdf
+  content_hash: sha256:69e2ac9eb2bbe2881df26acc53b46b39a15cfda206f5357e5f9c83feb0fadcc7
+mcp_servers:
+- deepwiki
+- parallel-search
+mcp_configs:
+  deepwiki:
+    name: deepwiki
+    transport: http
+    registry: false
+    url: https://mcp.deepwiki.com/mcp
+  parallel-search:
+    name: parallel-search
+    transport: http
+    registry: false
+    url: https://search-mcp.parallel.ai/mcp
+local_deployed_files:
+- .agents/skills/argdown
+- .agents/skills/llm-wiki
+- .codex/agents/find-references.toml
+- .codex/agents/parallel-web-researcher.toml
+- .codex/agents/verify-claims.toml
+- .codex/agents/wiki-ingest.toml
+- .codex/agents/wiki-lint.toml
+- .codex/agents/wiki-query.toml
+local_deployed_file_hashes:
+  .codex/agents/find-references.toml: sha256:f858e7d5eccff03fb4e39ac1a569f796252ee0f513a4d0a6d9c05c22dc55d9fa
+  .codex/agents/parallel-web-researcher.toml: sha256:abd74ab1a2aaf86ddef1183a3e528521a732477e7f1892c02c780e0a4bf75a16
+  .codex/agents/verify-claims.toml: sha256:b0b4a9968b23448c1304187c905a5d69437e23b797c58106a88448ac1ef867ea
+  .codex/agents/wiki-ingest.toml: sha256:d23cd0bb6ae75c2b3cf5cba60f501e1a9f5b8d964a36430fd8056c246790b0d1
+  .codex/agents/wiki-lint.toml: sha256:231c9986f712a7bb622fdf414b78b323ed0940587ea6e25733c757dd4184ff5d
+  .codex/agents/wiki-query.toml: sha256:f907460b2b79803c3b5accf079a5abd5f8f0b37fbfb34b5d22da6b55d67dab43
